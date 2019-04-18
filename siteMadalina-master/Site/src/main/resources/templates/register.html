@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Register page</title>
+    <link rel="stylesheet" href="../css/register.css">
+</head>
+
+<body>
+<h1> Register </h1>
+<!-- comentarii in HTML-->
+<!-- //metoda post pentru ca trimite de la ecran spre controller -->
+<form th:action="@{/register}"  th:object="${user}" method="POST">
+<!-- br-urile sunt bad practice-->
+<!-- <br> -->
+<div class="container">
+
+    <div>
+    <label for = "lastname"><b>Last name</b></label>
+    <input type="text" placeholder="Enter last name" name="lastname" id="lastname" th:field="*{lastName}" required>
+    </div>
+
+    <div>
+    <label for = "firstname"><b>First name</b></label>
+    <input type="text" placeholder="Enter first name" name="firstname" id="firstname" th:field="*{firstName}" required>
+    </div>
+
+    <div>
+    <label for = "email"><b>Email</b></label>
+    <input type="email" placeholder="Enter email" name="email" id="email" th:field="*{email}"required>
+    </div>
+
+    <div>
+    <label for="uname"><b>Username</b></label>
+    <input type="text" placeholder="Enter Username" name="uname" id = "uname" th:field="*{userName}" required>
+    </div>
+
+    <div>
+    <label for="psw"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="psw" id = "psw"  th:field="*{password}"required>
+    </div>
+
+    <div>
+        <button class = "btn" type="submit" name="action">Register</button>
+    </div>
+
+</div>
+</form>
+</body>
+</html>

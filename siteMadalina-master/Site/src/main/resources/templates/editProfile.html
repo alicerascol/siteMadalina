@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit your profile</title>
+</head>
+<body>
+    <h1>Edit your profile</h1>
+
+    <form action="/userProfile" method="post" enctype="multipart/form-data">
+        <label for="file" style="cursor: pointer;">Choose a new profile picture</label>
+        <input type="file" name="profilePicture" accept="image/gif, image/jpeg, image/png"  id="file"  onchange="loadFile(event)"/>
+        <p><img id="output" width="200" /></p>
+    </form>
+
+    <form th:action="@{/editProfile}"  th:object="${user}" method="POST">
+
+        <div class="container">
+
+            <div>
+                <label for = "lastname"><b>Last name</b></label>
+                <input type="text" placeholder="Edit your last name" name="lastname" id="lastname" th:field="*{lastName}">
+            </div>
+
+            <div>
+                <label for = "firstname"><b>First name</b></label>
+                <input type="text" placeholder="Edit your first name" name="firstname" id="firstname" th:field="*{firstName}">
+            </div>
+
+            <div>
+                <label for = "email"><b>Email</b></label>
+                <input type="email" placeholder="Edit your email" name="email" id="email" th:field="*{email}" >
+            </div>
+
+            <div>
+                <label for="uname"><b>Username</b></label>
+                <input type="text" placeholder="Edit your Username" name="uname" id = "uname" th:field="*{userName}">
+            </div>
+
+            <div>
+                <label for="psw"><b>Password</b></label>
+                <input type="password" placeholder="Edit your Password" name="psw" id = "psw"  th:field="*{password}" required>
+            </div>
+<!--
+            <div>
+                <label for = "email"><b>Email</b></label>
+                <input type="email" placeholder="Enter your email again to confirm" name="email" id="email" th:field="*{email}" required>
+            </div>
+
+            <div>
+                <label for="psw"><b>Password</b></label>
+                <input type="password" placeholder="Enter your password again to confirm" name="psw" id = "psw"  th:field="*{password}" required>
+            </div>
+-->
+            <div>
+                <button class = "btn" type="submit" name="action">Save</button>
+            </div>
+
+        </div>
+    </form>
+
+</body>
+</html>

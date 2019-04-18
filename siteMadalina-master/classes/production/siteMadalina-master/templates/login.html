@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../css/login.css">
+    <title>Login page</title>
+</head>
+<body>
+<!-- scos in afara formei -->
+<h1> Login </h1>
+
+<!-- expresia th:action="@{/login}" redirecteaza forma catre metoda POST de la endpoint-ul "/login"  -->
+<!-- expresia th:object="${user}"  declara modelul obiect folosit pentru a colecta datele -->
+<!-- https://spring.io/guides/gs/handling-form-submission/ -->
+<form th:action="@{/login}"  th:object="${user}" method="post">
+
+    <div class="container">
+        <div>
+            <label for="uname"><b>Username</b></label>
+            <!-- th:field="*{userName}" corespunde cu atributul de pe obiectul user -->
+            <input  type="text" placeholder="Enter Username" name="uname" id = "uname" th:field="*{userName}" required >
+        </div>
+
+        <div>
+            <label for="psw"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="psw" id = "psw" th:field="*{password}" required>
+        </div>
+
+        <div>
+            <button class = "btn" type="submit" name="action">Login</button>
+        </div>
+
+    </div>
+</form>
+</body>
+</html>
